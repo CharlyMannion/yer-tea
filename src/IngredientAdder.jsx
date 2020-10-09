@@ -2,7 +2,9 @@ import React from 'react';
 
 class IngredientAdder extends React.Component {
     state = {
-        name: ''
+        ingredient_one: '',
+        // ingredient_two: ''
+
     };
 
     handleChange = (event) => {
@@ -19,19 +21,28 @@ class IngredientAdder extends React.Component {
         return (
             <form onSubmit={(event) => {
                 event.preventDefault();
-                this.props.addIngredient({
-                    name: this.state.name
-                });
+                this.props.addIngredient(
+                    this.state.ingredient_one
+                    // ingredient_two: this.state.ingredient_two,
+
+                );
                 this.setState({
-                    name: '',
+                    ingredient_one: '',
+                    // ingredient_two: ''
                 })
             }}
             >
-
-                <label htmlFor='ingredient'>
-                    Pop yer ingredient in here:
+                <h2>
+                    Pop Yer Ingredients in Here Lad
+                </h2>
+                <label htmlFor='ingredient_one'>
+                    Ingredient One:
                 </label>
-                <input id="ingredient" name="ingredient" onChange={this.handleChange} value={this.state.ingredient}/>  
+                <input id="ingredient_one" name="ingredient_one" onChange={this.handleChange} value={this.state.ingredient_one}/>  
+                {/* <label htmlFor='ingredient-two'>
+                    Ingredient Two:
+                </label>
+                <input id="ingredient-two" name="ingredient-two" onChange={this.handleChange} value={this.state.ingredient_two}/>   */}
                 <button>Push yer button there's a good lad</button>
             </form>
         )

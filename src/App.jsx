@@ -5,7 +5,7 @@ import './App.css';
 
 class App extends React.Component {
     state = {
-      ingredients: ['flour']
+      ingredients: ['flour', 'milk']
   }
 
     addIngredient = (ingredient) => {
@@ -22,7 +22,7 @@ class App extends React.Component {
             <div className='App'>
             <h1>You'll get what yer given</h1>
             <h2>Give us some ingredients then</h2>
-            <IngredientsList tasks={this.state.ingredients} deleteTask={this.deleteTask}/>
+            <IngredientsList tasks={this.state.ingredients}/>
             <IngredientAdder addIngredient={this.addIngredient}/> 
             </div> 
             );
