@@ -1,10 +1,9 @@
 import React from 'react';
 
 const IngredientsList = (props) => {
-    console.log(props, '<----------- PROPS');
     return (
         <ul>
-            {props.tasks.map((ingredient) => {
+            {props.sentIngredients.map((ingredient) => {
                 return (
                     <li key={ingredient}>
                         <p>
