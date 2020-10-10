@@ -5,25 +5,26 @@ import './App.css';
 
 class App extends React.Component {
     state = {
-      ingredients: ['flour', 'milk']
+      ingredients: {ingredient1: '', ingredient2: '', ingredient3: ''},
+      hasSubmitted: false
   }
 
-    addIngredient = (ingredient) => {
-        this.setState((prevState) => {
-            return {
-                ingredients: [...prevState.ingredients, ingredient]
-            }
-        })
-        console.log(this.state)
-    }
+    addIngredient = (ingredient1, ingredient2, ingredient3, hasSubmitted) => {
+        this.setState(() => {
+            return { 
+                ingredients: {ingredient1, ingredient2, ingredient3},
+                hasSubmitted: !hasSubmitted,
+        };
+    });
+};
 
     render() {
         return (
             <div className='App'>
             <h1>You'll get what yer given</h1>
             <h2>Give us some ingredients then</h2>
-            <IngredientsList sentIngredients={this.state.ingredients}/>
             <IngredientAdder addIngredient={this.addIngredient}/> 
+            {this.state.hasSubmitted} && <IngredientsList sentState={this.state}/>
             </div> 
             );
     }
